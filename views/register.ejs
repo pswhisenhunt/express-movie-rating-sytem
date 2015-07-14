@@ -1,12 +1,18 @@
-<form action='/register' method='post'>
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name"/>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Abel|Arvo|Cookie|Lobster+Two' rel='stylesheet' type='text/css'>
+  <link href="stylesheets/main.css" rel="stylesheet">
+</head>
+<a href="/" class="home-link">Home</a>
+<h1 class="form-header">Register!</h1>
+<form action='/register' method='post' class="form">
+  <label for="name" class="form-label">Name:</label>
+  <input type="text" name="name" id="name" class="form-input"/>
 
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email"/>
+  <label for="email" class="form-label">Email:</label>
+  <input type="email" name="email" id="email" class="form-input"/>
 
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password"/>
+  <label for="password" class="form-label">Password:</label>
+  <input type="password" name="password" id="password" class="form-input"/>
 
-  <input type="submit">
+  <input type="submit" class="form-submit-button" value="Submit">
 </form>

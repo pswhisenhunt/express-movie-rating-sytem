@@ -1,9 +1,15 @@
-<form action='/login' method='post'>
-  <label for="email">Email:</label>
-  <input type="email" name="email" id="email"/>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Abel|Arvo|Cookie|Lobster+Two' rel='stylesheet' type='text/css'>
+  <link href="stylesheets/main.css" rel="stylesheet">
+</head>
+<a href="/" class="home-link">Home</a>
+<h1 class="form-header">Log in!</h1>
+<form action='/login' method='post' class="form log-in">
+  <label for="email" class="form-label">Email:</label>
+  <input type="email" name="email" id="email" class="form-input"/>
 
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password"/>
+  <label for="password" class="form-label">Password:</label>
+  <input type="password" name="password" id="password" class="form-input"/>
 
-  <input type="submit">
+  <input type="submit" class="form-submit-button">
 </form>

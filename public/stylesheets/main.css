@@ -7,13 +7,12 @@ body {
 
 .heading {
   margin-top: 20px;
+  height: 150px;
   text-align: center;
   font-size: 60px;
   font-family: "Arvo", serif;
   background-color: #333;
-  color: white;
-  height: 150px;
-}
+  color: white; }
 
 .photos {
   /* Prevent vertical gaps */
@@ -31,15 +30,15 @@ body {
     opacity: 0.60; }
 
 .footer {
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  margin-top: 50%;
+  text-align: center;
   background-color: #333;
   color: white;
   font-family: "Cookie", sans-serif;
-  font-size: 28px;
-  height: 50px;
-  position: absolute;
-  width: 100%;
-  margin-top: 50%;
-  text-align: center; }
+  font-size: 28px; }
 
 @media (max-width: 1200px) {
   .photos {
@@ -61,84 +60,64 @@ body {
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1; } }
-.wrapper .home-button {
-  margin-left: 10%; }
-.wrapper .new-movie-button {
-  border: 4px solid #8ccb85;
-  font-family: "Abel", sans-serif;
-  font-size: 26px;
-  color: #e49ff5;
+.link, .home-link, .show-link {
   padding: 5px;
-  text-decoration: none; }
-.wrapper .go-to-movie {
-  text-decoration: none;
-  color: #692388;
-  font-size: 24px; }
-.wrapper a:hover {
-  color: #e49ff5; }
-.wrapper thead {
-  height: 50px;
-  border-bottom: 2px solid white;
-  font-size: 28px;
-  color: white;
-  font-family: "Lobster Two", sans-serif; }
-.wrapper table {
-  width: 80%;
   margin: 0 auto;
-  background-color: #8ccb85;
-  box-shadow: 2px 2px 2px 1px white;
-  font-family: "Abel", sans-serif;
-  font-size: 22px;
-  margin-top: 5px; }
-.wrapper th {
-  text-align: center;
   width: 200px;
-  padding: 20px; }
-.wrapper td {
-  padding: 20px;
-  text-align: center;
-  width: 250px;
-  border-bottom: 2px solid white;
-  border-left: 2px solid white; }
-.wrapper .form-button {
-  background-color: #333;
-  color: #e49ff5;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 5px; }
-.wrapper a.form-button {
-  text-decoration: none; }
+  display: inline;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  border: 3px solid white; }
 
-.movie-header {
-  font-family: "Lobster Two", sans-serif;
-  font-size: 42px;
-  color: #e49ff5;
+.or {
+  font-size: 14px; }
+
+.home-link, .show-link {
+  width: 50px;
+  float: right;
+  display: block;
+  font-size: 22px;
+  font-family: "Lobster Two", sans-serif; }
+
+.show-link {
+  border: none;
+  margin: 5px; }
+
+.form-header {
   width: 30%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  font-family: "Lobster Two", sans-serif;
+  font-size: 50px;
+  color: #e49ff5; }
 
-.movie-form {
+.form {
   margin: 0 auto;
   width: 30%;
-  border: 5px solid #8ccb85;
-  font-family: "Abel", sans-serif;
-  font-size: 22px;
   padding: 20px;
-  position: relative; }
-  .movie-form label {
-    color: #e49ff5;
-    font-size: 22px;
-    padding: 5px; }
-  .movie-form input {
-    display: block;
-    margin: 5px;
-    width: 90%; }
-  .movie-form input[type="submit"] {
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 10px;
-    background-color: #e49ff5;
-    font-size: 28px;
-    border: none; }
+  position: relative;
+  border: 8px solid #8ccb85;
+  font-family: "Lobster Two", sans-serif;
+  font-size: 22px; }
+
+.form-label {
+  padding: 5px;
+  color: #e49ff5;
+  font-size: 22px; }
+
+.form-input {
+  display: block;
+  margin: 5px;
+  width: 90%;
+  height: 35px; }
+
+.form-submit-button {
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: #e49ff5;
+  font-size: 20px;
+  font-family: "Lobster Two", sans-serif;
+  border: none; }
 
 .movie-info img {
   height: 500px;
@@ -152,18 +131,10 @@ body {
   padding: 5px;
   color: white; }
 
-
-.link {
-  text-decoration: none;
-  display: inline;
-  font-size: 16px;
+.logged-in-user {
+  width: 20%;
   color: white;
-  border: 3px solid white;
-  padding: 5px;
-  margin: 0 auto;
-  width: 200px;
-}
+  font-size: 24px;
+  font-family: "Lobster Two", sans-serif; }
 
-.or {
-  font-size: 14px;
-}
+/*# sourceMappingURL=main.css.map */

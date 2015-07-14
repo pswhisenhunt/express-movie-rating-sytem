@@ -1,0 +1,32 @@
+$Cookie-font: 'Cookie', sans-serif;
+$Avro-font: 'Arvo', serif;
+$Abel-font: 'Abel', sans-serif;
+$Lobster-font: 'Lobster Two', sans-serif;
+$color-purple: rgb(228, 159, 245);
+$border: 2px solid white;
+$color-green: #8ccb85;
+$color-dark-purple: #692388;
+
+.movie-info {
+  img {
+    height: 500px;
+    float: left;
+    padding-right: 20px;
+  }
+  ul li{
+    margin-left: 30%;
+    list-style-type: none;
+    font-size: 28px;
+    font-family: $Abel-font;
+    padding: 5px;
+    color: white;
+  }
+}
+
+.logged-in-user {
+  width: 20%;
+
+  color: white;
+  font-size: 24px;
+  font-family: $Lobster-font;
+}

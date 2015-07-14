@@ -8,10 +8,7 @@
 <body>
   <header class="heading">
     <span class="prefix-title"><%= name %>'s</span> Rotten Tomatoes
-    <a href="/logout" class="link">Logout</a>
   </header>
-  <div class="user-info">
-    <%- name %>
-    <%- email %>
-  </div>
+  <a href="/logout" class="show-link">Logout</a>
+  <div class="logged-in-user"><%- email %></div>
 </body>

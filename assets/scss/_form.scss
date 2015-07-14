@@ -1,0 +1,47 @@
+$Cookie-font: 'Cookie', sans-serif;
+$Avro-font: 'Arvo', serif;
+$Abel-font: 'Abel', sans-serif;
+$Lobster-font: 'Lobster Two', sans-serif;
+$border: 1px solid white;
+$color-purple: rgb(228, 159, 245);
+$color-green: #8ccb85;
+
+.form-header {
+  width: 30%;
+  margin: 0 auto;
+
+  font-family: $Lobster-font;
+  font-size: 50px;
+  color: $color-purple;
+}
+.form {
+  margin: 0 auto;
+  width: 30%;
+  padding: 20px;
+  position: relative;
+
+  border: 8px solid $color-green;
+  font-family: $Lobster-font;
+  font-size: 22px;
+}
+.form-label {
+  padding: 5px;
+
+  color: $color-purple;
+  font-size: 22px;
+}
+.form-input {
+  display: block;
+  margin: 5px;
+  width:  90%;
+  height: 35px;
+}
+.form-submit-button {
+  margin: 0 auto;
+  margin-top: 10px;
+
+  background-color: $color-purple;
+  font-size: 20px;
+  font-family: $Lobster-font;
+  border: none;
+}
