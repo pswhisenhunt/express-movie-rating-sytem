@@ -1,0 +1,33 @@
+<head>
+  <title>New Movies!</title>
+  <link href='http://fonts.googleapis.com/css?family=Abel|Arvo|Cookie|Lobster+Two' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+  <body>
+    <header class="heading">
+      <span class="prefix-title"><%- name %>'s </span> Rotten Tomatoes
+    </header>
+    <h1 class="form-header">Add a movie!</h1>
+    <form action="/users/<%- _id %>/movies" method='post' class="form">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" name="title" class="form-input" id="title"/>
+
+      <label for="director" class="form-label">Director</label>
+      <input type="text" name="director" class="form-input" id="director"/>
+
+      <label for="year" class="form-label">Year</label>
+      <input type="text" name="year" class="form-input" id="year"/>
+
+      <label for="rating" class="form-label">Rating</label>
+      <input type="text" name="rating" class="form-input" id="rating"/>
+
+      <label for="posterUrl" class="form-label">URL</label>
+      <input type="text" name="posterUrl" class="form-input" id="posterUrl"/>
+
+      <input type="submit" value="Add Movie!" class="form-submit-button">
+    </form>
+    <footer class="footer">
+      Built with &hearts; by Pamela
+    </footer>
+  </body>
+</html>

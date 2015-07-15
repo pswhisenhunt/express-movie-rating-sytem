@@ -7,8 +7,35 @@
 </head>
 <body>
   <header class="heading">
-    <span class="prefix-title"><%= name %>'s</span> Rotten Tomatoes
+    <span class="prefix-title"><%- name %>'s</span> Rotten Tomatoes
   </header>
   <a href="/logout" class="show-link">Logout</a>
   <div class="logged-in-user"><%- email %></div>
+  <form action="/users/<%- _id %>" method="post">
+    <input type="submit" class="form-submit-button" value="Delete Account"/>
+  </form>
+  <a href="/users/<%- _id %>/movies" class="link">Add Movie</a>
+  <main class="wrapper">
+   <section>
+    <% if(movies.length === 0) { %>
+      <p class="no-movies">You don't have any movies yet! Get started by adding some!
+      </p>
+    <% }  else { %>
+      <% movies.forEach(function(movie) { %>
+        <ul class="list-item-container">
+          <li>
+            <form action="/users/<%= _id %>/movies/<%= movie._id %>/delete" method="post">
+              <input type="submit" class="form-submit-button" value="X"/>
+            </form>
+          </li>
+          <li class="list-item movie-poster"><img src="<%= movie.posterUrl %>" alt="<%= movie.title %> poster"/></li>
+          <li class="list-item"><a href="/movies/<%= movie._id %>/" class="movie-page"><%= movie.title %></a></li>
+          <li class="list-item"><%= movie.director %></li>
+          <li class="list-item"><%= movie.year %></li>
+          <li class="list-item"><%= movie.rating %></li>
+        </ul>
+      <% }); %>
+    <% } %>
+   </section>
+ </main>
 </body>
