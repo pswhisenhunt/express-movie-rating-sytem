@@ -1,0 +1,40 @@
+<head>
+  <title>All Movies!</title>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Abel|Arvo|Cookie|Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href="/stylesheets/main.css" rel="stylesheet">
+  </head>
+</head>
+<body>
+  <header class="heading">
+    <span class="prefix-title">All </span> Movies
+  </header>
+  <a href="/logout" class="show-link">Logout</a>
+  <div class="logged-in-user"><%- user.email %></div>
+  <a href="/users/<%= user._id %>" class="link" >your page</a>
+  <a href="/movies/new" class="link">Add a movie to the database!</a>
+  <main class="wrapper">
+   <section>
+    <% if(movies.length === 0) { %>
+      <p class="no-movies">No movies in the database!</p>
+    <% } else { %>
+      <% for(var i = 0; i < movies.length; i++) { %>
+        <ul class="list-item-container">
+          <li class="list-item movie-poster"><img src="<%= movies[i].posterUrl %>" alt="<%= movies[i].title %> poster"/></li>
+          <li class="list-item"><a href="/movies/<%= movies[i]._id %>/" class="movie-page"><%= movies[i].title %></a></li>
+          <li class="list-item"><%= movies[i].director %></li>
+          <li class="list-item"><%= movies[i].year %></li>
+          <li class="list-item"><%= movies[i].rating %></li>
+          <li class="list-item">
+            <form action="/users/<%- user._id %>/movies/<%= movies[i]._id %>/add" method='post'>
+              <input type="hidden" name="title" id="title" value="<%= movies[i].title %>"/>
+              <input type="hidden" name="director" id="director" value="<%= movies[i].director %>"/>
+              <input type="hidden" name="year" id="year" value="<%= movies[i].year%>"/>
+              <input type="hidden" name="rating" id="rating" value="<%= movies[i].rating %>"/>
+              <input type="hidden" name="posterUrl" id="posterUrl" value="<%= movies[i].posterUrl %>"/>
+              <input type="submit" value="Add to movie collection" class="form-submit-button">
+            </form>
+          </li>
+        </ul>
+      <% } %>
+    <% } %>

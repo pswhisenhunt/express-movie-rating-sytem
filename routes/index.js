@@ -102,6 +102,21 @@ router.post('/users/:id/movies', function(req, res, next) {
   });
 });
 
+router.post('/users/:id/movies/:id/add', function(req, res, next) {
+  var splitUrl = req.url.split('/');
+  var movieId= splitUrl[4];
+  var userId = splitUrl[2];
+  movies.findOne({_id: movieId}, function(err, movie) {
+    if (err) {
+      console.log(err)
+      throw err;
+    } else {
+      users.findAndModify({_id: userId }, {$push: { movies: movie }}, function(err, doc) {
+        res.redirect('/users/' + doc._id);
+      });
+    }
+  })
+});
 //gets the form to add a new movie to the user's collection
 router.get('/users/:id/movies', function(req, res, next) {
   if (sess.user) {
@@ -212,12 +227,47 @@ router.post('/users/:id', function(req, res, next) {
 // ----------------------------------------------------------------------
 
 router.get('/movies', function(req, res, next) {
-  // render movies/index
+  var currentUserAndAllMovies = {}
+  users.findOne({_id: sess.user._id}, function(err, doc) {
+    if (err) {
+      throw err;
+    } else {
+      console.log(doc)
+      currentUserAndAllMovies["user"] = doc;
+    }
+  });
+  movies.find({}, function(err, docs) {
+    if (err) {
+      throw err;
+    } else {
+      console.log(docs)
+      currentUserAndAllMovies["movies"] = docs;
+      console.log(currentUserAndAllMovies);
+      res.render('movies/index', currentUserAndAllMovies);
+    }
+  })
 });
 
-router.get('/movies/:id', function(req, res, next) {
-  // render moives/show
-})
+router.get('/movies/new', function(req, res, next) {
+  res.render('movies/new', {});
+});
+
+router.post('/movies', function(req, res, next) {
+  var movie = {};
+  movie.title = req.body.title,
+  movie.director = req.body.director,
+  movie.year = req.body.year,
+  movie.rating = req.body.rating,
+  movie.posterUrl = req.body.posterUrl;
+  movies.insert(movie, function(err, newMovie) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/movies');
+    }
+  });
+});
+
 
 
 module.exports = router;

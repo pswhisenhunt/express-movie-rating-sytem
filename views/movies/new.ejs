@@ -5,10 +5,10 @@
 </head>
   <body>
     <header class="heading">
-      <span class="prefix-title"><%- name %>'s </span> Rotten Tomatoes
+      <span class="prefix-title">Your</span> Rotten Tomatoes
     </header>
-    <h1 class="form-header">Add a movie to your collection!</h1>
-    <form action="/users/<%- _id %>/movies" method='post' class="form">
+    <h1 class="form-header">Add a movie to the database!</h1>
+    <form action="/movies" method='post' class="form">
       <label for="title" class="form-label">Title</label>
       <input type="text" name="title" class="form-input" id="title"/>
 

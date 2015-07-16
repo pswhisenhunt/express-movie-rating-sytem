@@ -1,27 +1,41 @@
+<head>
+  <title>All Movies!</title>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Abel|Arvo|Cookie|Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href="/stylesheets/main.css" rel="stylesheet">
+  </head>
+</head>
 <body>
   <header class="heading">
-    <span class="prefix-title"><%= user.name %>'s </span> Rotten Tomatoes
+    <span class="prefix-title">your</span> Rotten Tomatoes
   </header>
-  <h1 class="form-header">Edit <%= movie.title %>!</h1>
-  <form action="/users/<%= user._id %>/movies/<%-= movie._id/update" method='post' class="form">
-    <label for="title" class="form-label">Title</label>
-    <input type="text" name="title" class="form-input" id="title" value="<%= movie.title %>"/>
-
-    <label for="director" class="form-label">Director</label>
-    <input type="text" name="director" class="form-input" id="director" value="<%= movie.director" %>/>
-
-    <label for="year" class="form-label">Year</label>
-    <input type="text" name="year" class="form-input" id="year" value="<%= movie.year" %>/>
-
-    <label for="rating" class="form-label">Rating</label>
-    <input type="text" name="rating" class="form-input" id="rating" value="<%= movie.rating" %>/>
-
-    <label for="posterUrl" class="form-label">URL</label>
-    <input type="text" name="posterUrl" class="form-input" id="posterUrl" value="<%= movie.posterUrl" %>/>
-
-    <input type="submit" value="Save Changes" class="form-submit-button">
-  </form>
-  <footer class="footer">
-    Built with &hearts; by Pamela
-  </footer>
+  <a href="/logout" class="show-link">Logout</a>
+  <div class="logged-in-user"><%- user.email %></div>
+  <main class="wrapper">
+   <section>
+    <% if(movies.length === 0) { %>
+      <p class="no-movies">No movies in the database!</p>
+    <% }  else { %>
+      <% movies.forEach(function(movie) { %>
+        <ul class="list-item-container">
+          <li class="list-item movie-poster"><img src="<%= movie.posterUrl %>" alt="<%= movie.title %> poster"/></li>
+          <li class="list-item"><a href="/movies/<%= movie._id %>/" class="movie-page"><%= movie.title %></a></li>
+          <li class="list-item"><%= movie.director %></li>
+          <li class="list-item"><%= movie.year %></li>
+          <li class="list-item"><%= movie.rating %></li>
+          <li>
+            <form action="/users/<%- user._id %>/movies" method='post' class="form">
+              <input type="hidden" name="title" class="form-input" id="title" value="<%= movie.title %>"/>
+              <input type="hidden" name="director" class="form-input" id="director" value="<%= movie.director %>"/>
+              <input type="hidden" name="year" class="form-input" id="year" value="<%= movie.year%>"/>
+              <input type="hidden" name="rating" class="form-input" id="rating" value="<%= movie.rating %>"/>
+              <input type="hidden" name="posterUrl" class="form-input" id="posterUrl" value="<%= movie.posterUrl %>"/>
+              <input type="submit" value="Add to movie collection" class="form-submit-button">
+            </form>
+          </li>
+        </ul>
+      <% }); %>
+    <% } %>
+   </section>
+ </main>
 </body>
