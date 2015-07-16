@@ -15,16 +15,16 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req,res, next) {
-  res.render('login', {});
+  res.render('users/login', {});
 });
 
 router.post('/login', function(req, res, next) {
   users.findOne({email: req.body.email}, function(err, doc) {
     if (err) {
-      res.render('login-error', {});
+      res.render('users/login-error', {});
     }
     if(!doc) {
-      res.render('login-error', {});
+      res.render('users/login-error', {});
     } else {
       if (bcrypt.compareSync(req.body.password, doc.password)) {
         sess = req.session;
@@ -32,14 +32,14 @@ router.post('/login', function(req, res, next) {
         sess.user = doc;
         res.redirect('/users/'+ doc._id)
       } else {
-        res.render('login-error', {});
+        res.render('users/login-error', {});
       }
     }
   });
 });
 
 router.get('/register', function(req, res, next) {
-  res.render('register', {});
+  res.render('users/register', {});
 });
 
 router.post('/register', function(req, res, next) {
@@ -76,7 +76,7 @@ router.get('/users/:id', function(req, res, next) {
   id = id[2];
   if(sess.user) {
     users.findOne({_id: id}, function(err, doc) {
-      res.render('show', doc);
+      res.render('users/show', doc);
     });
   } else {
     res.redirect('/');
@@ -120,9 +120,9 @@ router.post('/users/:id/movies/:id/add', function(req, res, next) {
 //gets the form to add a new movie to the user's collection
 router.get('/users/:id/movies', function(req, res, next) {
   if (sess.user) {
-    res.render('new', sess.user);
+    res.render('users/new', sess.user);
   } else {
-    res.render('login', {});
+    res.render('users/login', {});
   }
 });
 
@@ -158,7 +158,7 @@ router.get('/users/:id/movies/:id/edit', function(req, res, next) {
         } else {
           userAndMovieToEdit["movie"] = movie;
         }
-        res.render('edit', userAndMovieToEdit);
+        res.render('users/edit', userAndMovieToEdit);
       });
     }
   });
