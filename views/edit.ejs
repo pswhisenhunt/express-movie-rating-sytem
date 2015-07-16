@@ -1,0 +1,30 @@
+<head>
+  <title>Edit Movie</title>
+  <link href='http://fonts.googleapis.com/css?family=Abel|Arvo|Cookie|Lobster+Two' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+    <body>
+      <header class="heading">
+        <span class="prefix-title"><%= user.name %>'s </span> Rotten Tomatoes
+      </header>
+      <h1 class="form-header">Edit <%= movie.title %>!</h1>
+      <form action="/users/<%= user._id %>/movies/<%= movie._id %>/update" method='post' class="form">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" name="title" class="form-input" id="title" value="<%= movie.title %>"/>
+
+          <label for="director" class="form-label">Director</label>
+          <input type="text" name="director" class="form-input" id="director" value="<%= movie.director %>"/>
+
+          <label for="year" class="form-label">Year</label>
+          <input type="text" name="year" class="form-input" id="year" value="<%= movie.year%>"/>
+
+          <label for="rating" class="form-label">Rating</label>
+          <input type="text" name="rating" class="form-input" id="rating" value="<%= movie.rating %>"/>
+
+          <label for="posterUrl" class="form-label">URL</label>
+          <input type="text" name="posterUrl" class="form-input" id="posterUrl" value="<%= movie.posterUrl %>"/>
+
+          <input type="submit" value="Save Changes" class="form-submit-button">
+
+      </form>
+</html>

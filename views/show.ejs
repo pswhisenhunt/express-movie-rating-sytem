@@ -1,5 +1,5 @@
 <head>
-  <title><%+ name %>'s Movies!</title>
+  <title><%= name %>'s Movies!</title>
   <head>
     <link href='http://fonts.googleapis.com/css?family=Abel|Arvo|Cookie|Lobster+Two' rel='stylesheet' type='text/css'>
     <link href="/stylesheets/main.css" rel="stylesheet">
@@ -7,14 +7,14 @@
 </head>
 <body>
   <header class="heading">
-    <span class="prefix-title"><%- name %>'s</span> Rotten Tomatoes
+    <span class="prefix-title"><%= name %>'s</span> Rotten Tomatoes
   </header>
   <a href="/logout" class="show-link">Logout</a>
   <div class="logged-in-user"><%- email %></div>
-  <form action="/users/<%- _id %>" method="post">
+  <form action="/users/<%= _id %>" method="post">
     <input type="submit" class="form-submit-button" value="Delete Account"/>
   </form>
-  <a href="/users/<%- _id %>/movies" class="link">Add Movie</a>
+  <a href="/users/<%= _id %>/movies" class="link">Add Movie</a>
   <main class="wrapper">
    <section>
     <% if(movies.length === 0) { %>
@@ -23,10 +23,13 @@
     <% }  else { %>
       <% movies.forEach(function(movie) { %>
         <ul class="list-item-container">
-          <li>
+          <li class="list-item delete-form">
             <form action="/users/<%= _id %>/movies/<%= movie._id %>/delete" method="post">
-              <input type="submit" class="form-submit-button" value="X"/>
+              <input type="submit" class="delete-button" value="X"/>
             </form>
+          </li>
+          <li class="list-item">
+            <a href="/users/<%= _id %>/movies/<%= movie._id %>/edit">Edit</a>
           </li>
           <li class="list-item movie-poster"><img src="<%= movie.posterUrl %>" alt="<%= movie.title %> poster"/></li>
           <li class="list-item"><a href="/movies/<%= movie._id %>/" class="movie-page"><%= movie.title %></a></li>

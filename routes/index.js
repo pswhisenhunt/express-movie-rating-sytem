@@ -6,7 +6,7 @@ var movies = db.get('movies');
 var bcrypt = require('bcrypt');
 var session = require('express-session');
 var sess;
-var url = require('url');
+
 
 // Default routes (root or '/'), which contains login and register forms;
 // ----------------------------------------------------------------------
@@ -127,9 +127,65 @@ router.post('/users/:id/movies/:id/delete', function(req, res, next) {
   });
 });
 
+router.get('/users/:id/movies/:id/edit', function(req, res, next) {
+  var splitUrl = req.url.split('/');
+  var movieId= splitUrl[4];
+  var userId = splitUrl[2];
+  var userAndMovieToEdit = {};
+  users.findOne({_id: userId}, function(err, user) {
+    if (err) {
+      throw err;
+    } else {
+      userAndMovieToEdit["user"] = user;
+      movies.findOne({_id: movieId}, function(err, movie) {
+        if (err) {
+          throw err;
+        } else {
+          userAndMovieToEdit["movie"] = movie;
+        }
+        res.render('edit', userAndMovieToEdit);
+      });
+    }
+  });
+});
+
 //updates a movie from the user's collection
 router.post('/users/:id/movies/:id/update', function(req, res, next) {
-
+  var splitUrl = req.url.split('/');
+  var movieId= splitUrl[4];
+  var userId = splitUrl[2];
+  var newMovie = {
+    title: req.body.title,
+    director: req.body.director,
+    year: req.body.year,
+    rating: req.body.rating,
+    posterUrl: req.body.posterUrl
+  }
+  movies.findOne({_id: movieId}, function(err, movie) {
+    if (err) {
+      throw err
+    }
+    users.update({_id: userId}, {$pull: {movies: movie}});
+  })
+  .success(function() {
+    movies.findAndModify({
+      "query": { "_id": movieId },
+      "update": {
+        "$set": newMovie
+      }
+    },
+    function(err, movie) {
+      console.log(movie)
+      newMovie._id = movie._id
+      if (err) {
+        throw err;
+      } else {
+        users.findAndModify({_id: userId }, {$push: { movies: newMovie }}, function(err, doc) {
+          res.redirect('/users/' + doc._id);
+        });
+      }
+    });
+  });
 });
 
 //delete's the user's account
