@@ -190,7 +190,9 @@ router.post('/users/:id/movies/:id/update', function(req, res, next) {
 
 //delete's the user's account
 router.post('/users/:id', function(req, res, next) {
-  users.remove({_id: sess.user._id}, function(err, doc) {
+  var id = req.url.split('/')
+  id = id[2];
+  users.remove({_id: id}, function(err, doc) {
     if (err) {
       console.log(err);
     }
