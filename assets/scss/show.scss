@@ -8,7 +8,8 @@ $color-green: #8ccb85;
 $color-dark-purple: #692388;
 
 .list-item-container {
-  width: 30%;
+  width: 25%;
+  height: 600px;
   float: left;
   margin: 10px;
   padding: 10px;
@@ -16,7 +17,11 @@ $color-dark-purple: #692388;
   border-radius: 10px;
   border: 3px solid $color-green;
   text-align: center;
-  background-color: lightgrey;
+  background-color: rgb(204, 194, 194);
+}
+
+.user-page {
+  height: 625px;
 }
 
 .list-item {
@@ -39,6 +44,11 @@ $color-dark-purple: #692388;
   text-decoration: none;
 }
 
+.movie-poster {
+  border: 4px solid $color-dark-purple;
+  width: 300px;
+}
+
 .logged-in-user {
   width: 20%;
   margin-bottom: 10px;
@@ -53,4 +63,13 @@ $color-dark-purple: #692388;
   color: $color-green;
   font-family: $Lobster-font;
   font-size: 32px;
+}
+
+.browse-movies {
+    margin-left: 10%;
+}
+
+.clearfix {
+  clear: left;
+  overflow: auto;
 }

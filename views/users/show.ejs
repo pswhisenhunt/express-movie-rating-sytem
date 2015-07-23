@@ -17,13 +17,13 @@
   <a href="/users/<%= _id %>/movies" class="link">Add Movie</a>
   <a href="/movies" class="link">Browse Movies</a>
   <main class="wrapper">
-   <section>
+   <section class="browse-movies">
     <% if(movies.length === 0) { %>
       <p class="no-movies">You don't have any movies yet! Get started by adding some!
       </p>
     <% }  else { %>
       <% movies.forEach(function(movie) { %>
-        <ul class="list-item-container">
+        <ul class="list-item-container user-page">
           <li class="list-item delete-form">
             <form action="/users/<%= _id %>/movies/<%= movie._id %>/delete" method="post">
               <input type="submit" class="delete-button" value="X"/>
@@ -32,7 +32,7 @@
           <li class="list-item">
             <a href="/users/<%= _id %>/movies/<%= movie._id %>/edit">Edit</a>
           </li>
-          <li class="list-item movie-poster"><img src="<%= movie.posterUrl %>" alt="<%= movie.title %> poster"/></li>
+          <li class="list-item"><img class="movie-poster" src="<%= movie.posterUrl %>" alt="<%= movie.title %> poster"/></li>
           <li class="list-item"><a href="/movies/<%= movie._id %>/" class="movie-page"><%= movie.title %></a></li>
           <li class="list-item"><%= movie.director %></li>
           <li class="list-item"><%= movie.year %></li>

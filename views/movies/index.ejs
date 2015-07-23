@@ -14,13 +14,13 @@
   <a href="/users/<%= user._id %>" class="link" >your page</a>
   <a href="/movies/new" class="link">Add a movie to the database!</a>
   <main class="wrapper">
-   <section>
+   <section class="browse-movies">
     <% if(movies.length === 0) { %>
       <p class="no-movies">No movies in the database!</p>
     <% } else { %>
       <% for(var i = 0; i < movies.length; i++) { %>
         <ul class="list-item-container">
-          <li class="list-item movie-poster"><img src="<%= movies[i].posterUrl %>" alt="<%= movies[i].title %> poster"/></li>
+          <li class="list-item"><img class="movie-poster" src="<%= movies[i].posterUrl %>" alt="<%= movies[i].title %> poster"/></li>
           <li class="list-item"><a href="/movies/<%= movies[i]._id %>/" class="movie-page"><%= movies[i].title %></a></li>
           <li class="list-item"><%= movies[i].director %></li>
           <li class="list-item"><%= movies[i].year %></li>
@@ -35,6 +35,7 @@
               <input type="submit" value="Add to movie collection" class="form-submit-button">
             </form>
           </li>
+          <div class="clearfix"></div>
         </ul>
       <% } %>
     <% } %>
