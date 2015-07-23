@@ -20,7 +20,7 @@ Clicking 'browse movies' will display a list of all movies in the database. The 
 ![express movie app](https://github.com/pswhisenhunt/express-movie-rating-sytem/blob/master/app-imgs/browse_movies.png)
 
 Here the user is adding 'Up' to their collection from browse.
-![express movie app](https://github.com/pswhisenhunt/express-movie-rating-sytem/blob/master/app-imgs/add_movies_from_browse.png)
+![express movie app](https://github.com/pswhisenhunt/express-movie-rating-sytem/blob/master/app-imgs/add_movie_from_browse.png)
 
 Then, the user is redirected back to their page and 'Up' has been added to their collection
 ![express movie app](https://github.com/pswhisenhunt/express-movie-rating-sytem/blob/master/app-imgs/redirects_to_user_acct.png)
