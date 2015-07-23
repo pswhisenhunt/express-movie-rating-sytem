@@ -1,6 +1,6 @@
 # Node.js with Express Movie Rating System v 1.0
 
-This is an application I built to help me learn Express, user auth, sessions, and MongoDB. Instead of using 'express-generator', I wrote everything manually and commented as I went to make sure I had a good understanding of what the code meant.
+This is an application I built to help me learn Express, user auth, sessions, and MongoDB. Instead of using 'express-generator', I wrote everything manually and commented as I went to make sure I had a good understanding of what the code meant. This is my MVP. I intend to improve what I currently have and add more features to this application. 
 
 I used Grunt, Sass, Node.js, EJS for templates, express-session for sessions, bcrypt for user authentication, Express, MongoDB, and Monk.
 
@@ -34,4 +34,5 @@ The user can add a movie to their collection, which will add the movie to the da
 The user can add a movie to the database without adding it to their collection:
 ![express movie app](https://github.com/pswhisenhunt/express-movie-rating-sytem/blob/master/app-imgs/add_to_db.png)
 
-The user can also logout, delete their account, and delete movies from their collection. Deleting a movies from their collection will not delete it from the database.
+The user can also logout, delete their account, and delete movies from their collection. Deleting a movie from their collection will not delete it from the database.
+
